@@ -23,13 +23,18 @@ class DoctorsController < ApplicationController
   end
 end
 
-private
 def destroy
   @doctor.destroy
   redirect_to doctors_path
 end
 
+private
+def set_doctor
+  @doctor = Doctor.find(params[:id])
+end
+
 def doctor_params
   params.require(:doctor).permit(:name)
 end
+
 end
