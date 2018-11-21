@@ -1,11 +1,13 @@
 <h1>Doctor</h1>
-<%= link_to 'Add Doctor', new_doctor_path %>
 <hr />
 <h2><%= @doctors.length <= 0 ? "No Doctors" : "" %></h2> 
 <ul>
-  <% @doctors.each do |doctor| %>
-    <li>
-      <%= link_to doctor.name, doctor %>
-    </li>
+<% @doctors.each do |doctor| %>
+  <li>
+  <%= link_to doctor.name, doctor %>
+  </li>
   <% end %>
+  <br />
+  <br />
+  <%= link_to 'Add Doctor', new_doctor_path, class: "btn blue" %>
 </ul>
