@@ -1,12 +1,12 @@
 <h1>Add Appointment</h1>
 <%= form_with(model: [@doctor, @appointment], local: true, class: "ui form" ) do |f| %>
   <%= f.label :patient %>
-  <%= f.select :patient_id, @patients.collect { |u| [u.full_name, u.id] } %>
+  <%= f.select :patient_id, @patients.collect { |p| [p.full_name, p.id] } %>
   <br />
   <%= f.label :date %>
-  <%= f.select :date %>
+  <%= f.text_field :date %>
   <br />
   <%= f.label :time %>
-  <%= f.se;ect :time %>
-  <%= f.submit nil, class: "ui green button inverted" %>
+  <%= f.text_field :time %>
+  <%= f.submit nil, class: "btn blue" %>
 <% end %>

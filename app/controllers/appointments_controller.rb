@@ -8,23 +8,26 @@ class AppointmentsController < ApplicationController
   end
 
   def new
+    @patients = Patient.all - @doctor.patients
     @appointment = @doctor.appointments.new
   end
 
+
   def create
-    @appointments = @doctor.appointments.new(appointment_params)
+    @appointment = @doctor.appointments.new(appointment_params)
     if @appointment.save
-      redirect_to doctor_appointments_path
+      redirect_to doctor_appointments_path(@doctor)
     else
       render :new
     end
   end
 
   def destroy
-    appointment = @doctor.appointments.find(params[:id])
+    appointment = @doctor.appointment.find(params[:id])
     appointment.destroy
-    redirect_to doctor_appointments_path
+    redirect_to doctor_appointment_path(@doctor)
   end
+    
 
   private
 
