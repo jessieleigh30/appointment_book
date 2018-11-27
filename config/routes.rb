@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'appointments/index'
-  get 'appointments/new'
+ 
   root 'patients#index'
 
   resources :patients

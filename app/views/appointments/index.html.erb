@@ -10,6 +10,7 @@
       <%= appointment.date %>
       <%= appointment.time %>
       <br />
-      
+      <%= link_to 'Remove', doctor_appointment_path(@doctor, appointment), method: :delete %>
     </li>
   <% end %>
+ 

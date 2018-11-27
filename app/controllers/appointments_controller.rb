@@ -8,7 +8,7 @@ class AppointmentsController < ApplicationController
   end
 
   def new
-    @patients = Patient.all - @doctor.patients
+    @patients = Patient.all
     @appointment = @doctor.appointments.new
   end
 
@@ -23,9 +23,8 @@ class AppointmentsController < ApplicationController
   end
 
   def destroy
-    appointment = @doctor.appointment.find(params[:id])
-    appointment.destroy
-    redirect_to doctor_appointment_path(@doctor)
+    @doctor.appointments.find(params[:id]).destroy
+    redirect_to doctor_appointments_path (@doctor)
   end
     
 
@@ -40,7 +39,7 @@ class AppointmentsController < ApplicationController
   end
 
   def set_patient
-    @patients = Patient.all - @doctor.patients
+    @patient = Patient.all - @doctor.patients
   end
  
 end
