@@ -1,13 +1,13 @@
 <h1>Doctor</h1>
 <hr />
 <h2><%= @doctors.length <= 0 ? "No Doctors" : "" %></h2> 
-<ul>
+
 <% @doctors.each do |doctor| %>
-  <li>
-  <%= link_to doctor.name, doctor %>
-  </li>
+ 
+  <h3><%= link_to doctor.name, doctor %><h2>
+    <h4>Number of Patients</h4><%= doctor.patients.count %>
+ 
   <% end %>
   <br />
   <br />
   <%= link_to 'Add Doctor', new_doctor_path, class: "ui button blue" %>
-</ul>
